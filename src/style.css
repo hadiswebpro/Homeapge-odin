@@ -15,6 +15,7 @@ body {
   font-family: Arial, sans-serif;
   color: #2b1b1b;
   background-color: #fffafa;
+  overflow-x: hidden;
 }
 
 img {
@@ -73,7 +74,7 @@ nav a:hover {
 
 
 /* =========================
-   ABOUT ME
+   ABOUT ME - DESKTOP
 ========================= */
 
 #about {
@@ -85,6 +86,7 @@ nav a:hover {
 
   display: grid;
   grid-template-columns: 1.1fr 1fr;
+
   align-items: center;
 
   gap: 70px;
@@ -147,6 +149,7 @@ nav a:hover {
 
 .social-links {
   display: flex;
+
   justify-content: center;
 
   gap: 24px;
@@ -156,16 +159,60 @@ nav a:hover {
 
 .social-links a {
   color: #8f1d2c;
-
   text-decoration: none;
 
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+}
+
+.social-links svg {
+  width: 28px;
+  height: 28px;
 }
 
 .social-links a:hover {
-  text-decoration: underline;
+  color: #7f1724;
 }
 
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 35px;
+}
+
+.social-links a,
+.project-links a,
+.contact-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  text-decoration: none;
+}
+
+.social-links img,
+.project-links img,
+.contact-links img {
+  width: 24px;
+  height: 24px;
+
+  display: block;
+}
+
+.social-links a:hover img,
+.project-links a:hover img,
+.contact-links a:hover img {
+  transform: scale(1.1);
+}
 
 /* =========================
    MY WORK
@@ -179,7 +226,7 @@ nav a:hover {
 }
 
 #work > h2 {
-  margin-bottom: 50px;
+  margin: 0 0 50px;
 
   color: #8f1d2c;
 
@@ -191,15 +238,19 @@ nav a:hover {
 .projects {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
   gap: 35px;
 }
 
 
-/* Project Card */
+/* =========================
+   PROJECT CARD
+========================= */
 
 .project-card {
+  min-width: 0;
+
   overflow: hidden;
 
   background-color: #ffffff;
@@ -242,7 +293,7 @@ nav a:hover {
   display: flex;
 
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 
   gap: 15px;
 }
@@ -270,25 +321,38 @@ nav a:hover {
   display: flex;
 
   gap: 10px;
+
+  flex-wrap: wrap;
+
+  justify-content: flex-end;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .project-links a {
-  color: #8f1d2c;
+  width: 32px;
+  height: 32px;
 
-  text-decoration: none;
-
-  font-size: 0.85rem;
-
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.project-links a:hover {
-  text-decoration: underline;
+.project-links img {
+  width: 22px;
+  height: 22px;
+
+  display: block;
 }
 
 
 /* =========================
-   CONTACT
+   CONTACT - DESKTOP
 ========================= */
 
 #contact {
@@ -337,6 +401,10 @@ nav a:hover {
   line-height: 1.6;
 }
 
+.contact-content address p {
+  margin: 8px 0;
+}
+
 .contact-content a {
   color: white;
 }
@@ -349,6 +417,8 @@ nav a:hover {
   gap: 25px;
 
   margin-top: 25px;
+
+  flex-wrap: wrap;
 }
 
 .contact-links a {
@@ -380,6 +450,7 @@ nav a:hover {
 
 /* =========================
    TABLET
+   901px → 601px
 ========================= */
 
 @media (max-width: 900px) {
@@ -405,6 +476,95 @@ nav a:hover {
   }
 
 
+  /* About */
+
+  #about {
+    width: 88%;
+
+    margin: 30px auto 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    align-items: stretch;
+  }
+
+  .about-image {
+    width: 75%;
+
+    height: 450px;
+
+    margin: 0 auto;
+
+    z-index: 2;
+  }
+
+  .about-image h1 {
+    left: 25px;
+    bottom: 25px;
+
+    font-size: 3.2rem;
+  }
+
+  .about-content {
+    width: 80%;
+
+    margin: -30px auto 0;
+
+    padding: 70px 50px 45px;
+
+    position: relative;
+
+    z-index: 1;
+  }
+
+  .about-content h2 {
+    font-size: 2.2rem;
+  }
+
+
+  /* Work */
+
+  #work {
+    width: 88%;
+
+    margin-bottom: 100px;
+  }
+
+  #work > h2 {
+    margin-bottom: 40px;
+
+    font-size: 2.2rem;
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+  }
+
+  .project-card > img {
+    height: 190px;
+  }
+
+  .project-info {
+    padding: 18px;
+  }
+
+  .project-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .project-links {
+    justify-content: flex-start;
+  }
+
+
   /* Contact */
 
   #contact {
@@ -421,12 +581,15 @@ nav a:hover {
     width: 100%;
 
     height: 280px;
+
+    object-fit: cover;
   }
 }
 
 
 /* =========================
    MOBILE
+   600px and below
 ========================= */
 
 @media (max-width: 600px) {
@@ -434,7 +597,7 @@ nav a:hover {
   /* Header */
 
   header {
-    min-height: 80px;
+    min-height: 90px;
 
     padding: 18px 5%;
   }
@@ -450,13 +613,132 @@ nav a:hover {
   nav {
     justify-content: center;
 
-    gap: 15px;
+    gap: 10px 15px;
 
     flex-wrap: wrap;
   }
 
   nav a {
     font-size: 0.9rem;
+  }
+
+
+  /* About */
+
+  #about {
+    width: 90%;
+
+    margin: 20px auto 80px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+  }
+
+  .about-image {
+    width: 100%;
+
+    height: 400px;
+
+    margin: 0;
+  }
+
+  .about-image h1 {
+    left: 20px;
+    bottom: 20px;
+
+    font-size: 3rem;
+  }
+
+  .about-content {
+    width: 100%;
+
+    margin: 0;
+
+    padding: 40px 22px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .about-content h2 {
+    font-size: 2rem;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+  }
+
+  .social-links {
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+  }
+
+
+  /* Work */
+
+  #work {
+    width: 90%;
+
+    margin-bottom: 80px;
+  }
+
+  #work > h2 {
+    margin-bottom: 30px;
+
+    font-size: 2rem;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .project-card > img {
+    width: 100%;
+
+    height: 200px;
+
+    object-fit: cover;
+  }
+
+  .project-info {
+    padding: 20px;
+  }
+
+  .project-header {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .project-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .project-links {
+    width: 100%;
+
+    justify-content: flex-start;
+
+    gap: 12px;
+  }
+
+  .project-info p {
+    margin-top: 15px;
+
+    font-size: 0.95rem;
   }
 
 
@@ -482,6 +764,20 @@ nav a:hover {
     font-size: 2rem;
   }
 
+  .contact-content > p {
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+  }
+
+  .contact-content address {
+    font-size: 0.95rem;
+  }
+
+  .contact-links {
+    gap: 15px;
+  }
+
   .contact-image {
     width: 100%;
   }
@@ -494,5 +790,78 @@ nav a:hover {
     height: 250px;
 
     object-fit: cover;
+  }
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+   320px → 400px
+========================= */
+
+@media (max-width: 400px) {
+
+  header {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  nav {
+    gap: 8px 12px;
+  }
+
+  nav a {
+    font-size: 0.8rem;
+  }
+
+  #about,
+  #work {
+    width: 92%;
+  }
+
+  .about-image {
+    height: 350px;
+  }
+
+  .about-image h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-content {
+    padding: 35px 18px;
+  }
+
+  .about-content h2,
+  #work > h2 {
+    font-size: 1.8rem;
+  }
+
+  .social-links {
+    gap: 12px;
+  }
+
+  .project-card > img {
+    height: 180px;
+  }
+
+  .project-info {
+    padding: 17px;
+  }
+
+  .project-links {
+    gap: 10px;
+  }
+
+  .project-links a {
+    font-size: 0.8rem;
+  }
+
+  #contact {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .contact-image img {
+    height: 220px;
   }
 }
